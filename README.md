@@ -83,7 +83,16 @@ The multi-robot warehouse task is parameterised by:
 ```sh
 git clone git@github.com:uoe-agents/task-assignment-robotic-warehouse.git
 cd task-assignment-robotic-warehouse
+
+conda create -n conda39-tarware python=3.9
+conda activate conda39-tarware
+
+python -m pip install --upgrade pip
+pip3 install --upgrade pip setuptools
 pip install -e .
+pip install tensorflow
+pip install tqdm
+pip install tensorboard_logger
 ```
 
 # Getting Started
@@ -140,6 +149,11 @@ The logic for running one heuristics episode can be found in `tarware/heuristic.
 ```sh
 
 python scripts/run_heuristic.py --num_episodes=10000 --seed=0 --render
+cd {root}
+tensorboard --logdir runs
+
+View at URL:
+http://localhost:6006/
 
 ```
 # Please Cite
